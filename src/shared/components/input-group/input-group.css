@@ -1,0 +1,9 @@
+.input-group {
+  margin-bottom: 24px;
+  text-align: left;
+}
+.input-group label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #888888;
+}

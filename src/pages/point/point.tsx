@@ -1,9 +1,9 @@
 import React from "react";
-import "./index.css";
+import "./point.css";
 
-export const Home = () => {
+export const Point = () => {
   return (
-    <div>Home works!</div>
+    <div>Point works!</div>
     // Code here
   );
 };

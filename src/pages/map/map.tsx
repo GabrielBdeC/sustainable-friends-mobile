@@ -1,9 +1,9 @@
 import React from "react";
-import "./index.css";
+import "./map.css";
 
-export const Home = () => {
+export const Map = () => {
   return (
-    <div>Home works!</div>
+    <div>Map works!</div>
     // Code here
   );
 };
