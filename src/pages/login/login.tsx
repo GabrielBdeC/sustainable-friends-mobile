@@ -50,7 +50,7 @@ export function Login() {
             />
             {error.email.hasError && <label>{error.email.msg}</label>}
           </InputGroup>
-          <Button type="submit">Log in</Button>
+          <Button type="submit" buttonSize="btn--little">Log in</Button>
         </form>
         <span>
           Don't have an account?
