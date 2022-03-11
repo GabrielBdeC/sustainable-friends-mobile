@@ -1,7 +1,7 @@
 import { LoggedDto } from "../models/logged.dto";
 import { LoginDto } from "../models/login.dto";
 
-export class ItemService {
+export class LoginService {
   private url = "http://localhost:4200/api/v1/auth/login"
 
   public async login(loginDto: LoginDto): Promise<LoggedDto> {
