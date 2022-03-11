@@ -1,0 +1,106 @@
+/* Config global */
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+/* Variaveis */
+:root {
+    --prymary: #248eff;
+    --white: #fdfdfd;
+    --red:  #ff4040;
+    --yellow: #f9ff40;
+  }
+
+/*Alert Config*/
+.alert {
+    font-family: "Roboto", sans-serif;
+    border-radius: 20px;
+
+}
+
+/* Buttons Config */
+.alert--size Button.btn--circle{
+    display: flex;
+    width: auto;
+    margin-right: 10px;
+}
+
+.alert--size Button.btn--circle:hover{
+    border: none;
+    transform: none;
+}
+
+.alert--size Button{
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+
+.alert--size Button:hover{
+    border: 2px solid var(--white);
+    transform: none;
+}
+
+/*Paragraph Config*/
+.alert--size .text{
+    margin: auto;
+    margin-bottom: 5px;
+    width: 80%;
+}
+
+/*Alert Primary Color Styles*/
+.alert--primary--solid {
+    background-color: var(--prymary);
+    color: var(--white);
+}
+
+/*Alert Error Color Styles*/
+.alert--error-solid{
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.alert--error-solid Button{
+    background-color: var(--red);
+    order: 2px solid var(--white);
+    color: var(--white);
+}
+
+.alert--error-solid Button:hover{
+    background-color: var(--prymary);
+    border-color:var(--white);
+    color: var(--yellow);
+}
+
+.alert--error-solid Button.btn--circle{
+    background-color: var(--red);
+    color: var(--prymary);
+}
+
+.alert--error-solid Button.btn--circle:hover{
+    background-color: var(--white);
+    color: var(--prymary);
+}
+
+/*Alert Size*/
+.alert--size{
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+    .alert--size {
+      width: 100%;
+    }
+  }
+
+
