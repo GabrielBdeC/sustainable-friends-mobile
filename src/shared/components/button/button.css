@@ -16,11 +16,6 @@
   padding: 6px 12px 0px 150px;
 }
 
-.p{
- padding: 4px; 
- float: left; 
-}
-
 .icon2{
   float: right;
   padding: 6px 10px 0px 280px;
@@ -47,28 +42,28 @@
 /*Button Config*/
 .btn {
   font-family: "Roboto", sans-serif;
-  /* font-weight: 400; */
+  font-weight: 500;
   border-radius: 20px;
   cursor: pointer;
+  border: none;
   transition: transform 0.3s ease;
 }
 
 .btn:hover {
   transform: translateY(-3px);
   color: var(--white);
-  background-color: var(--prymary);
-  border: var(--white);
+  background-color: #49A5FF;
+  border: 3px solid white;
 }
 
 /*Button Color and Styles*/
 .btn--primary--solid {
   background-color: var(--white);
   color: var(--prymary);
-  border-color: var(--prymary);
+  border: 3px solid #0080ff4d;
 }
 
 /* Button Size*/
-
 .btn--little {
   padding: 7px 30px;
   font-size: 20px;
