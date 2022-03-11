@@ -1,0 +1,81 @@
+/* Config global */
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+.add--itens--size{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    position: absolute;
+}
+
+/*Alert Primary Color Styles*/
+.alert--primary--solid {
+    background-color: var(--prymary);
+    color: var(--white);
+}
+
+/* Variaveis */
+:root {
+    --prymary: #248eff;
+    --white: #fdfdfd;
+}
+
+/* Buttons Config */
+.add--itens--size Button.btn--circle{
+    display: flex;
+    width: auto;
+    margin-right: 0px;
+    margin-left: 280px;
+}
+
+.add--itens--size Button.btn--circle:hover{
+    border: none;
+    transform: none;
+}
+
+.add--itens--size Button{
+    width: 48%;   
+    margin-bottom: 5px;
+    margin-right: 5px;
+    
+}
+
+.add--itens--size Button:hover{
+    border: 2px solid var(--white);
+    transform: none;
+}
+
+.add--itens--size Button.btn--little{ 
+    padding: 5px;
+    width: 90px;
+    margin-top: 20px;
+}
+
+/*Paragraph Config*/
+.add--itens--size .text{
+    margin-left: -4px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+    .add--itens--size {
+      width: 100%;
+    }
+  }
