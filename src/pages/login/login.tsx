@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import Img from './Teste_Logo2.png'
+import Img from '../../assets/img/Teste_Logo2.png'
 import "./login.css";
 
 import { Link } from "react-router-dom";
@@ -67,7 +67,7 @@ export function Login() {
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
           </Alert>        */}
-          <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
+          {/* <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
             <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
             <p className="text">Selecione os Materiais:</p>
             <Button type="submit" buttonSize="btn--medium">Material</Button>
@@ -79,7 +79,7 @@ export function Login() {
             <Button type="submit" buttonSize="btn--medium">Material</Button>
             <Button type="submit" buttonSize="btn--medium">Material</Button>
             <Button type="submit" buttonSize="btn--little"><p className="p">Pronto</p></Button>
-          </AddItems>     
+          </AddItems>      */}
         </form>
         <span>
           Don't have an account?

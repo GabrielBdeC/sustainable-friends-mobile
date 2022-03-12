@@ -12,8 +12,8 @@
 
 .entry-card .imgLogo{
   max-width: 250px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
   width: 80%;
   border-radius: 25px;
 }
