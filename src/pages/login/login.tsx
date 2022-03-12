@@ -37,7 +37,7 @@ export function Login() {
     <EntryPage>
       <PageHeader to="/">Logo</PageHeader>
       <EntryCard>
-        <img src={Img} className="imgLogo" />
+        <img src={Img} className="imgLogo"/>
         <h2>Log in</h2>
         <form onSubmit={(e) => e.preventDefault}>
           <InputGroup>
@@ -60,26 +60,26 @@ export function Login() {
           </InputGroup>
           <Button type="submit" buttonSize="btn--little">Entrar</Button>
           {/* // take Alert out of here later */}
-           {/* <Alert alertStyle="alert--error-solid" alertSize="alert--size">
+          {/* <Alert alertStyle="alert--error-solid" alertSize="alert--size">
             <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
             <p className="text">Notificação</p>
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
-          </Alert>     */}
-          {/* <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
+          </Alert>        */}
+          <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
             <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
             <p className="text">Selecione os Materiais:</p>
-            <Button type="submit" buttonSize="btn--medium">Material 1</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 2</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 3</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 4</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 5</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 6</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 7</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 8</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
             <Button type="submit" buttonSize="btn--little"><p className="p">Pronto</p></Button>
-          </AddItems>   */}
+          </AddItems>     
         </form>
         <span>
           Don't have an account?
