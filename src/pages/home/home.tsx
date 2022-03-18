@@ -1,7 +1,7 @@
 import { ItemDto } from "../../shared/models/item.dto";
 import { ItemService } from "../../shared/services/item.service";
 
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Img from '../../assets/img/Teste_Logo2.png'
 import Button from "../../shared/components/button/button";
@@ -32,10 +32,6 @@ export const Home = () => {
             <Link className="link" to={"/signup"}>Cadastrar-se</Link>
           </Button>
         </div>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/login" element={<Signup />} />
-        </Routes>
       </div >
 
   );

@@ -1,0 +1,20 @@
+.entry-card Input{
+    padding: 5px;
+}
+
+.entry-card InputGroup{
+    margin-bottom: 0px;
+}
+
+.entry-card Button{
+    margin-top: 0px;
+}
+
+.entry-card span{
+    margin: 10px;
+}
+
+.entry-card h2{
+    margin-bottom: 0px;
+}
+

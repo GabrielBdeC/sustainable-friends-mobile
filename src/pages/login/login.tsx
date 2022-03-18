@@ -4,6 +4,7 @@ import "./login.css";
 
 import { Link } from "react-router-dom";
 
+
 import Button from "../../shared/components/button/button";
 // take Alert out of here later
 import AddItems from "../../shared/components/addItems/addItems";
@@ -82,8 +83,8 @@ export function Login() {
           </AddItems>      */}
         </form>
         <span>
-          Don't have an account?
-          <Link to="/signup">Sign up</Link>
+          Não tem uma conta?
+          <Link to="/signup">Cadastre-se</Link>
         </span>
       </EntryCard>
     </EntryPage>
