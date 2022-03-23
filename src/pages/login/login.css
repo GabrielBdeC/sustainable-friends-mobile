@@ -8,3 +8,37 @@
     color: #49A5FF;
     transition: box-shadow 0.2s;
   }
+
+  .entry-card .materiais label {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid transparent;
+  }
+  
+  .entry-card .materiais input[type="checkbox"] {
+    display: none;
+  }
+  
+  .entry-card .materiais input:checked + label {
+    border-color: white;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .entry-card .materiais input:checked + label::after {
+    content: '\2714';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent;
+    border-right-color: white;
+    color: #49A5FF;
+    font-size: 12px;
+    text-indent: 10px;
+    line-height: 13px;
+  }
