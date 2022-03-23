@@ -1,89 +1,111 @@
 import { ChangeEvent } from "react";
-import Img from './Teste_Logo2.png'
+import Img from '../../assets/img/Teste_Logo2.png'
 import "./login.css";
 
 import { Link } from "react-router-dom";
 
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { SubmitHandler, useForm } from "react-hook-form";
+
 import Button from "../../shared/components/button/button";
-// take Alert out of here later
+
 import AddItems from "../../shared/components/addItems/addItems";
 import Alert from "../../shared/components/alert/alert";
-///////////////////////////////////////////////////////////////
+
 import EntryPage from "../../shared/components/entry-page/entry-page";
 import EntryCard from "../../shared/components/entry-card/entry-card";
 import PageHeader from "../../shared/components/page-header/page-header";
 import InputGroup from "../../shared/components/input-group/input-group";
-import Input from "../../shared/components/input/input";
-import EmailValidator from "../../shared/validators/email.validator";
 
 import { CgCloseO } from "react-icons/cg";
 
-const error = {
-  email: {
-    hasError: false,
-    msg: "E-mail inválido",
-  },
-};
+interface CreateUserFormData {
+  email: string;
+  password: string;
+}
 
-const emailInputValidator = (event: ChangeEvent<HTMLInputElement>) => {
-  if (!EmailValidator.isValid(event?.target?.nodeValue!)) {
-    alert("oi");
-  }
-  alert("noi");
-};
+const createUserFormSchema = yup.object().shape({
+  email: yup.string().email('Insira um email válido').required("Email incorreto"),
+  password: yup.string().required("Senha incorreta"),
+}).required()
 
 export function Login() {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CreateUserFormData>({
+    resolver: yupResolver(createUserFormSchema),
+  });
+
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
+    console.log(values);
+    alert("cadastro realizado com sucesso!");
+  };
+
   return (
     <EntryPage>
       <PageHeader to="/">Logo</PageHeader>
       <EntryCard>
+
         <img src={Img} className="imgLogo" />
         <h2>Log in</h2>
-        <form onSubmit={(e) => e.preventDefault}>
+
+        <form onSubmit={handleSubmit(handleCreateUser)}>
+
           <InputGroup>
             <label htmlFor="login-email">Endereço de Email</label>
-            <Input
+            <input
+              className="inputs-login"
               type="text"
               placeholder="Email"
               id="login-email"
-              onChange={emailInputValidator}
+              {... register("email")}
             />
+            <span className="span-error">{errors.email?.message}</span>
           </InputGroup>
+
           <InputGroup>
             <label htmlFor="login-password">Insira a senha</label>
-            <Input
+            <input
+              className="inputs-login"
               type="password"
               placeholder="Senha"
               id="login-password"
+              {... register("password")} 
             />
-            {error.email.hasError && <label>{error.email.msg}</label>}
+            <span className="span-error">{errors.password?.message}</span>
           </InputGroup>
+
           <Button type="submit" buttonSize="btn--little">Entrar</Button>
+
           {/* // take Alert out of here later */}
-           {/* <Alert alertStyle="alert--error-solid" alertSize="alert--size">
+          {/* <Alert alertStyle="alert--error-solid" alertSize="alert--size">
             <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
             <p className="text">Notificação</p>
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
-          </Alert>     */}
+          </Alert>        */}
           {/* <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
             <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
             <p className="text">Selecione os Materiais:</p>
-            <Button type="submit" buttonSize="btn--medium">Material 1</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 2</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 3</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 4</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 5</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 6</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 7</Button>
-            <Button type="submit" buttonSize="btn--medium">Material 8</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
+            <Button type="submit" buttonSize="btn--medium">Material</Button>
             <Button type="submit" buttonSize="btn--little"><p className="p">Pronto</p></Button>
-          </AddItems>   */}
+          </AddItems>      */}
         </form>
         <span>
-          Don't have an account?
-          <Link to="/signup">Sign up</Link>
+          Não tem uma conta?
+          <Link to="/signup">Cadastre-se</Link>
         </span>
       </EntryCard>
     </EntryPage>

@@ -6,7 +6,6 @@
   }
 
 .add--itens--size{
-    width: 100%;
     max-width: 500px;
     border-radius: 20px;
     padding: 50px;
@@ -39,8 +38,10 @@
 .add--itens--size Button.btn--circle{
     display: flex;
     width: auto;
-    margin-right: 0px;
-    margin-left: 280px;
+    position: absolute;
+    right:5px;
+    top: 10px;
+    /* margin-right: 10px; */
 }
 
 .add--itens--size Button.btn--circle:hover{
@@ -68,14 +69,36 @@
 
 /*Paragraph Config*/
 .add--itens--size .text{
-    margin-left: -4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding-bottom: 20px;
     font-size: 20px;
     width: 80%;
 }
 
+
 @media only screen and (max-width: 600px) {
     .add--itens--size {
-      width: 100%;
+      width: 95%;
     }
-  }
+
+
+}
+
+@media only screen and (width: 360px) {
+    .add--itens--size {
+      width: 360px;
+    }
+}
+
+@media only screen and (width: 280px) {
+
+    .add--itens--size Button.btn--medium{
+        width: 90%;   
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+}
+

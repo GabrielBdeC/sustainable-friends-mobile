@@ -1,44 +1,63 @@
 .entry-card {
-  width: 100%;
-  max-width: 450px;
+  width: 450px;
+  margin: 0 auto 0 auto;
   border-radius: 20px;
   padding: 50px;
-  margin-bottom: 40px;
   background: linear-gradient(90deg, 	#00BFFF 0%, #2222fa 100%);
   /* background-color: #49A5FF; */
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   text-align: center;
   position: relative;
 }
+
 .entry-card .imgLogo{
   max-width: 250px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
   width: 80%;
   border-radius: 25px;
 }
+
 .entry-card h2 {
   color: #ffffff;
   font-weight: 500;
   margin-bottom: 20px;
 }
+
 .entry-card span {
   display: block;
   margin-top: 40px;
   color: #ffffff;
   font-size: 14px;
 }
+
 .entry-card a {
   margin-left: 4px;
   color: #ffffff;
+ }
+ 
+
+/* @media only screen and (max-width: 600px) {
+  .entry-card{ 
+    border-radius: 0px;
+    width: 100%;
+    height: 100vh;
+  }
+}  */
+
+@media only screen and (max-width: 1280px) {
+  .entry-card{ 
+    border-radius: 0px;
+    width: 100%;
+    height: 100vh;
+  }
+} 
+
+@media only screen and (width: 1024px) {
+  .entry-card{ 
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-@media only screen and (max-width: 600px) {
-  .entry-card, .entry-card a, .entry-card span, .entry-card h2{
-    width: 80%;
-  }
-
-  .entry-card .imgLogo{
-    display: none;
-  }
-}
