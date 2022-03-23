@@ -18,21 +18,25 @@ itemService.getAll().then((item: ItemDto) => {
 
 export const Home = () => {
   return (
-      <div className="home-page">
-        <img src={Img} alt="imgLogo" className="imgLogo" />
-        <div className="text">
-          <p>Amigos Sustentáveis</p>
-          <p>Seja Bem Vindo(a)!</p>
-        </div>
-        <div className="buttons">
+    <div className="home-page">
+      <img src={Img} alt="imgLogo" className="imgLogo" />
+      <div className="text">
+        <p>Amigos Sustentáveis</p>
+        <p>Seja Bem Vindo(a)!</p>
+      </div>
+      <div className="buttons">
+        <Link className="link" to={"/login"}>
           <Button type="submit" buttonSize="btn--little">
-            <Link className="link" to={"/login"}>Entrar</Link>
+            Entrar
           </Button>
+        </Link>
+        <Link className="link" to={"/signup"}>
           <Button type="submit" buttonSize="btn--little">
-            <Link className="link" to={"/signup"}>Cadastrar-se</Link>
+            Cadastrar-se
           </Button>
-        </div>
-      </div >
+        </Link>
+      </div>
+    </div >
 
   );
 };
