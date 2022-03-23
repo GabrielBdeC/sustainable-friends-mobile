@@ -3,9 +3,9 @@
 }
 
 .entry-card .imgLogo-signup{
-    max-width: 100px;
+    max-width: 75px;
     border-radius: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 2px solid #49A5FF;;
 }
 .entry-card InputGroup{

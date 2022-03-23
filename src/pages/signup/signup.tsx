@@ -1,10 +1,9 @@
-import React from "react";
-
 // Validation
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from "react-hook-form";
 //*******//
+
 
 import { Link } from 'react-router-dom';
 import EntryPage from "../../shared/components/entry-page/entry-page";
@@ -21,27 +20,28 @@ interface CreateUserFormData {
   name: string;
   email: string;
   password: string;
+  cpf: string;
 }
 
 const createUserFormSchema = yup.object().shape({
   name: yup.string().required("Nome é obrigatório"),
   email: yup.string().email('Insira um email válido').required("Email é obrigatório"),
   password: yup.string().required("Senha é obrigatória"),
+  cpf: yup.string().required("CPF é obrigatório"),
 }).required()
+
 
 export function Signup() {
 
-  const { 
-    register, 
-    handleSubmit, 
-    formState: { errors }, 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
   } = useForm<CreateUserFormData>({
     resolver: yupResolver(createUserFormSchema),
   });
 
-  console.log('errors', errors);
-
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async(values) => {
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
     console.log(values);
     alert("cadastro realizado com sucesso!");
   };
@@ -63,7 +63,8 @@ export function Signup() {
               type="text"
               placeholder="Seu nome"
               id="signup-name"
-              {... register("name")} />
+              {...register("name")}
+            />
             <span className="span-error">{errors.name?.message}</span>
           </InputGroup>
 
@@ -74,7 +75,7 @@ export function Signup() {
               type="email"
               placeholder="name@mail.com"
               id="signup-email"
-              {... register("email")} />
+              {...register("email")} />
             <span className="span-error">{errors.email?.message}</span>
           </InputGroup>
 
@@ -85,8 +86,19 @@ export function Signup() {
               type="password"
               placeholder="Sua senha"
               id="signup-password"
-              {... register("password")} />
+              {...register("password")} />
             <span className="span-error">{errors.password?.message}</span>
+          </InputGroup>
+
+          <InputGroup>
+            <label htmlFor="signup-cpf">CPF</label>
+            <input
+              className="inputs-signup"
+              type="text"
+              placeholder="000.000.000-00"
+              id="signup-cpf"
+              {...register("cpf")} />
+            <span className="span-error">{errors.cpf?.message}</span>
           </InputGroup>
           <Button type="submit" buttonSize="btn--little">Criar</Button>
         </form>
