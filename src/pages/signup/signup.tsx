@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from "react-hook-form";
 //*******//
 
+import { cpf } from 'cpf-cnpj-validator'; 
 
 import { Link } from 'react-router-dom';
 import EntryPage from "../../shared/components/entry-page/entry-page";
@@ -15,6 +16,7 @@ import Button from "../../shared/components/button/button";
 import Img from '../../assets/img/Teste_Logo2.png'
 
 import "./signup.css";
+import { ChangeEvent } from 'react';
 
 interface CreateUserFormData {
   name: string;
@@ -28,6 +30,7 @@ const createUserFormSchema = yup.object().shape({
   email: yup.string().email('Insira um email válido').required("Email é obrigatório"),
   password: yup.string().required("Senha é obrigatória"),
   cpf: yup.string().required("CPF é obrigatório"),
+  
 }).required()
 
 
