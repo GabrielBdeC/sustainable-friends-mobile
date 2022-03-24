@@ -39,11 +39,11 @@ export class AuthService {
       });
   }
 
-  public logout() {
+  public static logout() {
     localStorage.removeItem("user");
   }
 
-  public getCurrentUser() {
+  public static getCurrentUser() {
     const userStr = localStorage.getItem("user");
     if (userStr) {
       return JSON.parse(userStr);
@@ -52,7 +52,7 @@ export class AuthService {
   }
 
   public async protected(): Promise<boolean> {
-    const token = this.getCurrentUser();
+    const token = AuthService.getCurrentUser();
 
     return fetch(`${this.url}/user/protected/`, {
       method: "GET",

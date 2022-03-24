@@ -71,7 +71,7 @@ export function Login() {
 
   const onInit = async () => {
     const authService = new AuthService();
-    if (authService.getCurrentUser()) {
+    if (AuthService.getCurrentUser()) {
       if (await authService.protected()){
         navigate("/map");
       }

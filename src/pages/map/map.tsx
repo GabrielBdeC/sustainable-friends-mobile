@@ -6,7 +6,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
 function onMarkerClick() {
-} 
+}
 
 function Map() {
 
@@ -16,19 +16,19 @@ function Map() {
     googleMapsApiKey: "AIzaSyDQISO3k52QEUZ_tQ3zsM6gbX5p4UlvirI"
   })
 
-  const [position, setMovement] = useState({lat: 0, lng: 0});
+  const [position, setMovement] = useState({ lat: 0, lng: 0 });
 
   let idWatch: number;
 
   const onLoad = React.useCallback((map) => {
-    navigator.geolocation.getCurrentPosition((resp)=>{
+    navigator.geolocation.getCurrentPosition((resp) => {
       setMovement({
         lat: resp.coords.latitude,
         lng: resp.coords.longitude,
       });
     });
-    idWatch = navigator.geolocation.watchPosition(()=>{
-      navigator.geolocation.getCurrentPosition((resp)=>{
+    idWatch = navigator.geolocation.watchPosition(() => {
+      navigator.geolocation.getCurrentPosition((resp) => {
         setMovement({
           lat: resp.coords.latitude,
           lng: resp.coords.longitude,
@@ -39,11 +39,16 @@ function Map() {
 
   const onInit = async () => {
     const authService = new AuthService();
-    if (authService.getCurrentUser()) {
-      if (!await authService.protected()){
+    if (AuthService.getCurrentUser()) {
+      if (!await authService.protected()) {
         navigate("/login");
       }
     };
+  }
+
+  const onLogout = () => {
+    AuthService.logout();
+    navigate("/home");
   }
 
   onInit();
@@ -89,9 +94,10 @@ function Map() {
         />
         <></>
       </GoogleMap>
-      <Button type="submit" buttonSize="btn--little" ><p className="p">Adicionar Ponto</p></Button>
+      <Button type="button" buttonSize="btn--little" ><p className="p">Adicionar Ponto</p></Button>
+      <Button type="button" onClick={onLogout} buttonSize="btn--little" ><p className="p">Logout</p></Button>
     </div>
-    
+
   ) : <></>
 }
 

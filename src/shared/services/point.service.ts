@@ -4,12 +4,10 @@ import { AuthService } from "./auth.service";
 
 export class PointService {
   private url = "http://localhost:4200/api/v1/point";
-  private authService: AuthService
   private token: string;
 
   constructor(){
-    this.authService = new AuthService();
-    this.token = this.authService.getCurrentUser();
+    this.token = AuthService.getCurrentUser();
   }
 
   public async getAllByLatLong(lat: number, lng: number, pagedPoint: PagedPointDto): Promise<PagedPointDto> {
