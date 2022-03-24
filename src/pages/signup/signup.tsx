@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from "react-hook-form";
 //*******//
 
-import { cpf } from 'cpf-cnpj-validator'; 
+
 
 import { Link } from 'react-router-dom';
 import EntryPage from "../../shared/components/entry-page/entry-page";
