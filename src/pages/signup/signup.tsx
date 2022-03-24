@@ -6,7 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import EntryPage from "../../shared/components/entry-page/entry-page";
 import EntryCard from "../../shared/components/entry-card/entry-card";
 import PageHeader from "../../shared/components/page-header/page-header";
@@ -18,7 +18,6 @@ import Img from '../../assets/img/Teste_Logo2.png'
 import "./signup.css";
 import { SessionDto } from '../../shared/models/session.dto';
 import { AuthService } from '../../shared/services/auth.service';
-import { ChangeEvent } from 'react';
 
 interface CreateUserFormData {
   name: string;
@@ -38,6 +37,8 @@ const authService: AuthService = new AuthService();
 
 
 export function Signup() {
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -60,6 +61,17 @@ export function Signup() {
       console.log(resp);
     });
   };
+
+  const onInit = async () => {
+    const authService = new AuthService();
+    if (authService.getCurrentUser()) {
+      if (await authService.protected()){
+        navigate("/map");
+      }
+    };
+  }
+
+  onInit();
 
   return (
     <EntryPage>

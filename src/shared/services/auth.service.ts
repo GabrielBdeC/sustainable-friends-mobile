@@ -41,7 +41,7 @@ export class AuthService {
 
   public logout() {
     localStorage.removeItem("user");
-  };
+  }
 
   public getCurrentUser() {
     const userStr = localStorage.getItem("user");
@@ -49,5 +49,20 @@ export class AuthService {
       return JSON.parse(userStr);
     }
     return null;
+  }
+
+  public async protected(): Promise<boolean> {
+    const token = this.getCurrentUser();
+
+    return fetch(`${this.url}/user/protected/`, {
+      method: "GET",
+      headers: { "Authorization": `Bearer ${token}` },
+    })
+      .then((req: Response) => {
+        return req.text();
+      })
+      .then((resp: string) => {
+        return resp === "This is the protected route. You can only access it with the JWT token.";
+      });
   }
 }

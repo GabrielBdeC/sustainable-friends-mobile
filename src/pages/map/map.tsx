@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import "./map.css";
 import Button from "../../shared/components/button/button";
+import { AuthService } from '../../shared/services/auth.service';
+import { useNavigate } from 'react-router-dom';
 
 function onMarkerClick() {
 } 
 
 function Map() {
+
+  const navigate = useNavigate();
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyDQISO3k52QEUZ_tQ3zsM6gbX5p4UlvirI"
@@ -32,6 +36,17 @@ function Map() {
       });
     });
   }, []);
+
+  const onInit = async () => {
+    const authService = new AuthService();
+    if (authService.getCurrentUser()) {
+      if (!await authService.protected()){
+        navigate("/login");
+      }
+    };
+  }
+
+  onInit();
 
   return isLoaded ? (
     <div className="container-map">
