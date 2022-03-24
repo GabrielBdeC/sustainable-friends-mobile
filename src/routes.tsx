@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes as RoutesDom, Route } from "react-router-dom";
 import { Home } from "./pages/home/home";
 import { Login } from "./pages/login/login";
-import { Map } from "./pages/map/map";
+import Map from "./pages/map/map";
 import { Point } from "./pages/point/point";
 import { NotFound } from "./pages/not-found/not-found";
 import { Signup } from "./pages/signup/signup";

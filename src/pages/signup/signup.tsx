@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 //*******//
 
 
+
 import { Link } from 'react-router-dom';
 import EntryPage from "../../shared/components/entry-page/entry-page";
 import EntryCard from "../../shared/components/entry-card/entry-card";
@@ -17,6 +18,7 @@ import Img from '../../assets/img/Teste_Logo2.png'
 import "./signup.css";
 import { SessionDto } from '../../shared/models/session.dto';
 import { AuthService } from '../../shared/services/auth.service';
+import { ChangeEvent } from 'react';
 
 interface CreateUserFormData {
   name: string;
