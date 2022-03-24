@@ -6,7 +6,7 @@ export class AuthService {
   private url = "http://localhost:4200/api/v1/auth";
 
   public async login(loginDto: LoginDto): Promise<SessionDto> {
-    return fetch(`$this.url/login/`, {
+    return fetch(`${this.url}/login/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginDto),
@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   public async signup(signupDto: SignupDto): Promise<SessionDto> {
-    return fetch(`$this.url/login/`, {
+    return fetch(`${this.url}/login/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(signupDto),
