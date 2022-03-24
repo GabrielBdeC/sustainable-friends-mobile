@@ -54,9 +54,13 @@ export function Login() {
       password: values.password,
     }).then((resp: SessionDto) => {
       navigate("/map");
-    }, (error) =>{
-      // Colocar alert aqui!
+    }).catch((error)=>{
+      console.log(error);
     });
+  };
+
+  const errorList = {
+    "password must be longer than or equal to 8 characters": "Senha deve maior que ou igual à 8 caracteres!"
   };
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {

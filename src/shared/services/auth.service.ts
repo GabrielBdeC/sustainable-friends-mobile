@@ -12,13 +12,20 @@ export class AuthService {
       body: JSON.stringify(loginDto),
     })
       .then((req: Response) => {
+        if (req.status != 201) {
+          throw req;
+        }
         return req.json();
+      }).catch(error => {
+        throw error;
       })
       .then((resp: SessionDto) => {
         if (resp.access_token) {
           localStorage.setItem("user", JSON.stringify(resp.access_token));
         }
         return resp;
+      }).catch(error => {
+        throw error;
       });
   }
 
@@ -29,13 +36,20 @@ export class AuthService {
       body: JSON.stringify(signupDto),
     })
       .then((req: Response) => {
+        if (req.status != 201) {
+          throw req;
+        }
         return req.json();
+      }).catch(error => {
+        throw error;
       })
       .then((resp: SessionDto) => {
         if (resp.access_token) {
           localStorage.setItem("user", JSON.stringify(resp.access_token));
         }
         return resp;
+      }).catch(error => {
+        throw error;
       });
   }
 
@@ -59,10 +73,17 @@ export class AuthService {
       headers: { "Authorization": `Bearer ${token}` },
     })
       .then((req: Response) => {
+        if (req.status != 201) {
+          throw req;
+        }
         return req.text();
+      }).catch(error => {
+        throw error;
       })
       .then((resp: string) => {
         return resp === "This is the protected route. You can only access it with the JWT token.";
-      });
+      }).catch(error => {
+        throw error;
+      });;
   }
 }
