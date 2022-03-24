@@ -1,66 +1,63 @@
-*{
-    padding: 0px;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.home-page{
-    width: 450px;
-    margin: 0 auto 0 auto;
-    border-radius: 20px;
-    padding: 50px;
-    background: linear-gradient(90deg, 	#00BFFF 0%, #2222fa 100%);
-    color: white;
-    text-align: center;
-    position: relative;
+.home-page {
+  width: 450px;
+  margin: 0 auto 0 auto;
+  border-radius: 20px;
+  padding: 50px;
+  background: linear-gradient(90deg, #00bfff 0%, #2222fa 100%);
+  color: white;
+  text-align: center;
+  position: relative;
 }
 
-.imgLogo{
-    border: solid #00BFFF;
-    max-width: 250px;
-    width: 80%;
-    border-radius: 25px;
+.imgLogo {
+  border: solid #00bfff;
+  max-width: 250px;
+  width: 80%;
+  border-radius: 25px;
 }
 
-.text{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: 25px;
-    text-shadow: 1px 2px 0.5px  #00BFFF;
-    cursor: none;
+.text {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 25px;
+  text-shadow: 1px 2px 0.5px #00bfff;
+  cursor: none;
 }
 
-.buttons .btn--little{
-    display: block;
-    margin: 0 auto 0 auto;
-    width: 100%;
-    margin-top: 20px;
+.buttons .btn--little {
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.btn--little:hover{
-    color: white;
+.btn--little:hover {
+  color: white;
 }
 
-.link{
-    text-decoration: none; 
+.link {
+  text-decoration: none;
 }
 
-.link:visited{
-    color: #248eff;
+.link:visited {
+  color: #248eff;
 }
 
-.link:hover{
-    color: white;
+.link:hover {
+  color: white;
 }
-
 
 @media only screen and (max-width: 1280px) {
-    .home-page{ 
-        border-radius: 0px;
-        border-radius: 0px;
-        width: 100%;
-        height: 100vh;
-    }
-
-} 
-  
+  .home-page {
+    border-radius: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 100vh;
+  }
+}

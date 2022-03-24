@@ -6,7 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import EntryPage from "../../shared/components/entry-page/entry-page";
 import EntryCard from "../../shared/components/entry-card/entry-card";
 import PageHeader from "../../shared/components/page-header/page-header";
@@ -16,25 +16,29 @@ import Button from "../../shared/components/button/button";
 import Img from '../../assets/img/Teste_Logo2.png'
 
 import "./signup.css";
-import { ChangeEvent } from 'react';
+import { SessionDto } from '../../shared/models/session.dto';
+import { AuthService } from '../../shared/services/auth.service';
 
 interface CreateUserFormData {
   name: string;
   email: string;
   password: string;
   cpf: string;
-}
+};
 
 const createUserFormSchema = yup.object().shape({
   name: yup.string().required("Nome é obrigatório"),
   email: yup.string().email('Insira um email válido').required("Email é obrigatório"),
   password: yup.string().required("Senha é obrigatória"),
   cpf: yup.string().required("CPF é obrigatório"),
-  
-}).required()
+}).required();
+
+const authService: AuthService = new AuthService();
 
 
 export function Signup() {
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -44,10 +48,30 @@ export function Signup() {
     resolver: yupResolver(createUserFormSchema),
   });
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
-    console.log(values);
-    alert("cadastro realizado com sucesso!");
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values: CreateUserFormData) => {
+    authService.signup({
+      email: values.email,
+      name: values.name,
+      password: values.password,
+      cpf: values.cpf,
+      preferences: {
+        items: []
+      }
+    }).then((resp: SessionDto) => {
+      console.log(resp);
+    });
   };
+
+  const onInit = async () => {
+    const authService = new AuthService();
+    if (authService.getCurrentUser()) {
+      if (await authService.protected()){
+        navigate("/map");
+      }
+    };
+  }
+
+  onInit();
 
   return (
     <EntryPage>

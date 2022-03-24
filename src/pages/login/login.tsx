@@ -17,9 +17,12 @@ import EntryPage from "../../shared/components/entry-page/entry-page";
 import EntryCard from "../../shared/components/entry-card/entry-card";
 import PageHeader from "../../shared/components/page-header/page-header";
 import InputGroup from "../../shared/components/input-group/input-group";
+import { useNavigate } from "react-router-dom";
 
 import { CgCloseO } from "react-icons/cg";
 import { ItemService } from "../../shared/services/item.service";
+import { SessionDto } from "../../shared/models/session.dto";
+import { AuthService } from "../../shared/services/auth.service";
 
 interface CreateUserFormData {
   email: string;
@@ -31,7 +34,11 @@ const createUserFormSchema = yup.object().shape({
   password: yup.string().required("Senha incorreta"),
 }).required()
 
+const authService: AuthService = new AuthService();
+
 export function Login() {
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -41,9 +48,15 @@ export function Login() {
     resolver: yupResolver(createUserFormSchema),
   });
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
-    console.log(values);
-    alert("cadastro realizado com sucesso!");
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values: CreateUserFormData) => {
+    authService.login({
+      email: values.email,
+      password: values.password,
+    }).then((resp: SessionDto) => {
+      navigate("/map");
+    }, (error) =>{
+      // Colocar alert aqui!
+    });
   };
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -56,51 +69,56 @@ export function Login() {
     };
   }
 
-    return (
-      <EntryPage>
-        <PageHeader to="/">Logo</PageHeader>
-        <EntryCard>
+  const onInit = async () => {
+    const authService = new AuthService();
+    if (authService.getCurrentUser()) {
+      if (await authService.protected()){
+        navigate("/map");
+      }
+    };
+  }
 
-          <img src={Img} className="imgLogo" />
-          <h2>Log in</h2>
+  onInit();
 
-          <form onSubmit={handleSubmit(handleCreateUser)}>
-
-            <InputGroup>
-              <label htmlFor="login-email">Endereço de Email</label>
-              <input
-                className="inputs-login"
-                type="text"
-                placeholder="Email"
-                id="login-email"
-                {...register("email")}
-              />
-              <span className="span-error">{errors.email?.message}</span>
-            </InputGroup>
-
-            <InputGroup>
-              <label htmlFor="login-password">Insira a senha</label>
-              <input
-                className="inputs-login"
-                type="password"
-                placeholder="Senha"
-                id="login-password"
-                {...register("password")}
-              />
-              <span className="span-error">{errors.password?.message}</span>
-            </InputGroup>
-
-            <Button type="submit" buttonSize="btn--little">Entrar</Button>
-
-            {/* // take Alert out of here later */}
-            {/* <Alert alertStyle="alert--error-solid" alertSize="alert--size">
+  return (
+    <EntryPage>
+      <PageHeader to="/">Logo</PageHeader>
+      <EntryCard>
+        <img src={Img} className="imgLogo" />
+        <h2>Log in</h2>
+        <form onSubmit={handleSubmit(handleCreateUser)}>
+          <InputGroup>
+            <label htmlFor="login-email">Endereço de Email</label>
+            <input
+              className="inputs-login"
+              type="text"
+              placeholder="Email"
+              id="login-email"
+              {...register("email")}
+            />
+            <span className="span-error">{errors.email?.message}</span>
+          </InputGroup>
+          <InputGroup>
+            <label htmlFor="login-password">Insira a senha</label>
+            <input
+              className="inputs-login"
+              type="password"
+              placeholder="Senha"
+              id="login-password"
+              {...register("password")}
+            />
+            <span className="span-error">{errors.password?.message}</span>
+          </InputGroup>
+          <Button type="submit" buttonSize="btn--little">Entrar</Button>
+          {/* // take Alert out of here later */}
+          {/* <Alert alertStyle="alert--error-solid" alertSize="alert--size">
             <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
             <p className="text">Notificação</p>
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
           </Alert>        */}
-            <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
+          {/* <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
               <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
               <p className="text">Selecione os Materiais:</p>
               <div className="materiais" id="materiais">
@@ -114,14 +132,14 @@ export function Login() {
                 <label htmlFor="cb-4">Material 4</label>
               </div>
               <Button type="submit" buttonSize="btn--little" onClick={handleClick}><p className="p">Pronto</p></Button>
-            </AddItems>
-          </form>
-          <span>
-            Não tem uma conta?
-            <Link to="/signup">Cadastre-se</Link>
-          </span>
-        </EntryCard>
-      </EntryPage>
-    );
-  }
+          </AddItems> */}
+        </form>
+        <span>
+          Não tem uma conta?
+          <Link to="/signup">Cadastre-se</Link>
+        </span>
+      </EntryCard>
+    </EntryPage>
+  );
+}
 
