@@ -1,14 +1,11 @@
-import { ItemDto } from "../../shared/models/item.dto";
-import { ItemService } from "../../shared/services/item.service";
-
 import { Link } from "react-router-dom";
 
+import { ItemDto } from "../../shared/models/item.dto";
+import { ItemService } from "../../shared/services/item.service";
 import Img from '../../assets/img/Teste_Logo2.png'
 import Button from "../../shared/components/button/button";
 
 import "./home.css";
-import { Login } from "../../pages/login/login";
-import { Signup } from "../../pages/signup/signup";
 
 
 const itemService = new ItemService();

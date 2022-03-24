@@ -20,6 +20,8 @@ import InputGroup from "../../shared/components/input-group/input-group";
 
 import { CgCloseO } from "react-icons/cg";
 import { ItemService } from "../../shared/services/item.service";
+import { SessionDto } from "../../shared/models/session.dto";
+import { AuthService } from "../../shared/services/auth.service";
 
 interface CreateUserFormData {
   email: string;
@@ -31,6 +33,8 @@ const createUserFormSchema = yup.object().shape({
   password: yup.string().required("Senha incorreta"),
 }).required()
 
+const authService: AuthService = new AuthService();
+
 export function Login() {
 
   const {
@@ -41,9 +45,13 @@ export function Login() {
     resolver: yupResolver(createUserFormSchema),
   });
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
-    console.log(values);
-    alert("cadastro realizado com sucesso!");
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values: CreateUserFormData) => {
+    authService.login({
+      email: values.email,
+      password: values.password,
+    }).then((resp: SessionDto) => {
+      // RESOLVE A CARALHA DA SESSÃO AQUI
+    });
   };
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -100,7 +108,7 @@ export function Login() {
             <Button type="submit" buttonSize="btn--little">teste</Button>
             <Button type="submit" buttonSize="btn--little">teste</Button>
           </Alert>        */}
-            <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
+            {/* <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
               <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
               <p className="text">Selecione os Materiais:</p>
               <div className="materiais" id="materiais">
@@ -114,7 +122,7 @@ export function Login() {
                 <label htmlFor="cb-4">Material 4</label>
               </div>
               <Button type="submit" buttonSize="btn--little" onClick={handleClick}><p className="p">Pronto</p></Button>
-            </AddItems>
+          </AddItems> */}
           </form>
           <span>
             Não tem uma conta?

@@ -15,6 +15,8 @@ import Button from "../../shared/components/button/button";
 import Img from '../../assets/img/Teste_Logo2.png'
 
 import "./signup.css";
+import { SessionDto } from '../../shared/models/session.dto';
+import { AuthService } from '../../shared/services/auth.service';
 
 interface CreateUserFormData {
   name: string;
@@ -28,7 +30,9 @@ const createUserFormSchema = yup.object().shape({
   email: yup.string().email('Insira um email válido').required("Email é obrigatório"),
   password: yup.string().required("Senha é obrigatória"),
   cpf: yup.string().required("CPF é obrigatório"),
-}).required()
+}).required();
+
+const authService: AuthService = new AuthService();
 
 
 export function Signup() {
@@ -41,9 +45,18 @@ export function Signup() {
     resolver: yupResolver(createUserFormSchema),
   });
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
-    console.log(values);
-    alert("cadastro realizado com sucesso!");
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values: CreateUserFormData) => {
+    authService.signup({
+      email: values.email,
+      name: values.name,
+      password: values.password,
+      cpf: values.cpf,
+      preferences: {
+        items: []
+      }
+    }).then((resp: SessionDto) => {
+      console.log(resp);
+    });
   };
 
   return (
