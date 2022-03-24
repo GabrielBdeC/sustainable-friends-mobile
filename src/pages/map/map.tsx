@@ -5,6 +5,7 @@ import Button from "../../shared/components/button/button";
 import { AuthService } from '../../shared/services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
+
 function onMarkerClick() {
 }
 
@@ -68,30 +69,7 @@ function Map() {
             scaledSize: new google.maps.Size(30, 30)
           }}
         />
-        <Marker
-          onClick={onMarkerClick}
-          position={{ lat: -28.930480, lng: -49.472340 }}
-          icon={{
-            url: "https://imgkub.com/images/2022/03/20/coleta_WB.png",
-            scaledSize: new google.maps.Size(30, 30)
-          }}
-        />
-        <Marker
-          onClick={onMarkerClick}
-          position={{ lat: -28.930580, lng: -49.412940 }}
-          icon={{
-            url: "https://imgkub.com/images/2022/03/20/entrega_WB.png",
-            scaledSize: new google.maps.Size(30, 30)
-          }}
-        />
-        <Marker
-          onClick={onMarkerClick}
-          position={{ lat: -28.930510, lng: -49.432940 }}
-          icon={{
-            url: "https://imgkub.com/images/2022/03/20/entrega_WB.png",
-            scaledSize: new google.maps.Size(30, 30)
-          }}
-        />
+          
         <></>
       </GoogleMap>
       <Button type="button" buttonSize="btn--little" ><p className="p">Adicionar Ponto</p></Button>
@@ -100,6 +78,7 @@ function Map() {
 
   ) : <></>
 }
+
 
 export default React.memo(Map);
 
