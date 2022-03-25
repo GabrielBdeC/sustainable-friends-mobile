@@ -10,7 +10,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import Button from "../../shared/components/button/button";
 
-import AddItems from "../../shared/components/addItems/addItems";
 import Alert from "../../shared/components/alert/alert";
 
 import EntryPage from "../../shared/components/entry-page/entry-page";

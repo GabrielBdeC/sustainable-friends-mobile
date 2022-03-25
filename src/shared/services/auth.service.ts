@@ -73,7 +73,7 @@ export class AuthService {
       headers: { "Authorization": `Bearer ${token}` },
     })
       .then((req: Response) => {
-        if (req.status != 201) {
+        if (req.status != 200) {
           throw req;
         }
         return req.text();

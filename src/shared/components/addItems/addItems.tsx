@@ -11,7 +11,7 @@ interface IPropsAdd {
     children: ReactNode
 }
 
-const AddItens: FC<IPropsAdd> = (props: IPropsAdd): JSX.Element => {
+export const AddItems: FC<IPropsAdd> = (props: IPropsAdd): JSX.Element => {
     return (
         <div className={`alert 
             ${props.addStyle} 
@@ -25,5 +25,3 @@ const AddItens: FC<IPropsAdd> = (props: IPropsAdd): JSX.Element => {
         </div>
     );
 };
-
-export default AddItens;
