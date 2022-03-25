@@ -173,19 +173,25 @@ function Map() {
       <div className='button-logout'>
         <Button type="button" onClick={onLogout} buttonSize="btn--little" ><p className="p">Logout</p></Button>
       </div>
-      {modalOpen ? (
-        <div className='modal'>
-          <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
-            <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
-            <p className="text">Selecione os Materiais:</p>
-            <div className="materiais" id="materiais">
-              
-            </div>
+      <div className='modal'>
+        <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
+          <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
+          <p className="text">Selecione os Materiais:</p>
+          <div className="materiais" id="materiais">
+            <input id="cb-1" type="checkbox" className="checkbox" value="Material 1" />
+            <label htmlFor="cb-1">Material 1</label>
+            <input id="cb-2" type="checkbox" className="checkbox" value="Material 2" />
+            <label htmlFor="cb-2">Material 2</label>
+            <input id="cb-3" type="checkbox" className="checkbox" value="Material 3" />
+            <label htmlFor="cb-3">Material 3</label>
+            <input id="cb-4" type="checkbox" className="checkbox" value="Material 4" />
+            <label htmlFor="cb-4">Material 4</label>
+          </div>
+          <div className='button-ready'>
             <Button type="button" buttonSize="btn--little" onClick={handleClick}><p className="p">Pronto</p></Button>
-          </AddItems>
-        </div>)
-      : null}
-
+          </div>
+        </AddItems>
+      </div>
       <></>
 
     </div>
