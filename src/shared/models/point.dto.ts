@@ -4,8 +4,8 @@ import { UserDto } from "./user.dto";
 export interface PointDto {
   identifier: string;
   distance?: number;
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   description?: string;
   pointItems: PointItemDto[];
   createdBy: UserDto;
