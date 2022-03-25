@@ -200,7 +200,9 @@ function Map() {
             <input id="cb-4" type="checkbox" className="checkbox" value="Material 4" />
             <label htmlFor="cb-4">Material 4</label>
           </div>
-          <Button type="button" buttonSize="btn--little" onClick={handleClick}><p className="p">Pronto</p></Button>
+          <div className='button-ready'>
+            <Button type="button" buttonSize="btn--little" onClick={handleClick}><p className="p">Pronto</p></Button>
+          </div>
         </AddItems>
       </div>
       <></>

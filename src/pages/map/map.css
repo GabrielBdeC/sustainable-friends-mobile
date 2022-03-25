@@ -73,3 +73,8 @@
   text-indent: 10px;
   line-height: 13px;
 }
+
+.modal .button-ready{
+  margin-top: 40px;
+  margin-right: 100px;
+}
