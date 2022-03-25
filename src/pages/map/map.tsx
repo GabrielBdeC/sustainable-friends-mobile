@@ -182,6 +182,10 @@ function Map() {
           {listMarker}
         </ul>
       </GoogleMap>
+      <Button type="button" buttonSize="btn--little" ><p className="p">Adicionar Ponto</p></Button>
+      <div className='button-logout'>
+        <Button type="button" onClick={onLogout} buttonSize="btn--little" ><p className="p">Logout</p></Button>
+      </div>
       <div className='modal'>
         <AddItems addSize="add--itens--size" addStyle="alert--primary--solid" userId=" " latitude={0} longitude={0} itens={[]}>
           <Button type="submit" buttonSize="btn--circle"><CgCloseO /></Button>
