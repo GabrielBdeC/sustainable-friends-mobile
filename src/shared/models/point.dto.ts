@@ -15,5 +15,5 @@ export interface CreatePointDto {
   latitude: string;
   longitude: string;
   description?: string;
-  items: number[];
+  items: (number | undefined)[];
 }
