@@ -52,7 +52,7 @@ function Map() {
     navigate("/home");
   }
 
-  onInit();
+  // onInit();
 
   return isLoaded ? (
     <div className="container-map">
@@ -73,7 +73,10 @@ function Map() {
         <></>
       </GoogleMap>
       <Button type="button" buttonSize="btn--little" ><p className="p">Adicionar Ponto</p></Button>
-      <Button type="button" onClick={onLogout} buttonSize="btn--little" ><p className="p">Logout</p></Button>
+      <div className='button-logout'>
+        <Button type="button" onClick={onLogout} buttonSize="btn--little" ><p className="p">Logout</p></Button>
+      </div>
+      
     </div>
 
   ) : <></>
