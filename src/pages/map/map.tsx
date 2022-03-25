@@ -10,6 +10,7 @@ import { PointDto } from '../../shared/models/point.dto';
 import { AddItems } from '../../shared/components/addItems/addItems';
 import { CgCloseO } from 'react-icons/cg';
 
+
 function onMarkerClick() {
 }
 
@@ -126,7 +127,7 @@ function Map() {
     navigate("/home");
   }
 
-  onInit();
+  // onInit();
 
   const handleClick = () => {
     let listaMarcados = document.getElementsByTagName("input");
@@ -204,6 +205,7 @@ function Map() {
 
   ) : <></>
 }
+
 
 export default React.memo(Map);
 
